@@ -1,0 +1,34 @@
+@import '../../../../utils/vars/vars.scss';
+
+.profile-block {
+    padding: 15px;
+    background: $color-main-reverse;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid;
+    }
+
+    &__view-settings {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        align-items: center
+    }
+
+    &__headline {
+        display: flex;
+        align-items: center;
+        font-size: 1.25rem;
+    }
+
+    &__headline-counter {
+        font-size: 1rem;
+        margin-left: 15px;
+        color: darken($color: $color-main, $amount: 50);
+        font-style: italic;
+    }
+}

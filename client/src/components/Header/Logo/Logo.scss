@@ -1,0 +1,45 @@
+@import '../../../utils/vars/vars.scss';
+
+.logo {
+    color: $color-main;
+    font-family: $ff-logo;
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+    display: flex;
+    align-items: center;
+    outline: none;
+
+    &:hover,
+    &:focus {
+        .logo__desc {
+            text-shadow:  3px 3px 3px $color-accent;
+        }
+    }
+
+    &__desc {
+        transition: text-shadow .3s ease;
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: .9;
+    }
+
+    &__icon {
+        display: flex;
+        transform: scale(.8);
+        color: $color-accent;
+    }
+
+    &__icon-item.one {
+        transform: translate(9px, 6px) rotate(14deg);
+    }
+    &__icon-item.two {
+        transform: rotate(-95deg) translate(0px, 0px);
+    }
+    &__icon-item.three {
+        font-size: 40px;
+    }
+}

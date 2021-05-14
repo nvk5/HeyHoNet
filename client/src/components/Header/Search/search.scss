@@ -1,0 +1,93 @@
+@import '../../../utils/vars/vars.scss';
+
+.search {
+    &__item {
+        display: flex;
+        overflow: hidden;
+        // width: 60px;
+        // height: 60px;
+        border-radius: 30px;
+        background: lighten($color: $color-main-reverse, $amount: 10);
+        padding: 15px;
+        position: relative;
+        min-width: 50px;
+        cursor: pointer;
+    }
+
+    &__icon {
+        fill: $color-main;
+        width: 20px;
+        height: 20px;
+        transition: fill .3s ease;
+        z-index: 1;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &__text {
+        // border-radius: 30px;
+        background: lighten($color: $color-main-reverse, $amount: 10);
+        border: none;
+        outline: none;
+        color: $color-main;
+        transition: all .3s ease-in-out;
+        
+
+        &:hover,
+        &:focus {
+            & + .search__icon {
+                fill: $color-accent;
+            }
+        }
+
+        &.show {
+            width: 100%;
+            margin-left: 30px;
+            // padding-left: 30px;
+        }
+
+        &.hide {
+            width: 0;
+            margin-left: 0;
+            // padding-left: 0;
+        }
+    }
+
+    // &__item {
+    //     border-radius: 30px;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     padding: 15px;
+    //     background: lighten($color: $color-main-reverse, $amount: 10);
+    //     cursor: pointer;
+    //     overflow: hidden;
+    // }
+
+    // &__icon {
+    //     width: 15px;
+    //     height: 15px;
+    //     fill: $color-main;
+    //     transition: fill .3s ease;
+    //     z-index: 1;
+    // }
+
+    // &__text {
+    //     background: lighten($color: $color-main-reverse, $amount: 10);
+    //     color: $color-main;
+    //     border: none;
+    //     outline: none;
+    //     transition: transform .3s ease-in-out;
+    //     transform: translateX(-100%);
+
+    //     &.show {
+    //         transform: translateX(0);
+    //     }
+
+    //     &.hide {
+    //         transform: translateX(-100%);
+    //     }
+    // }
+}

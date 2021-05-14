@@ -1,0 +1,74 @@
+@import '../../utils/vars/vars.scss';
+
+.nav {
+    background: $color-main-reverse;
+    width: 75px;
+    overflow: hidden;
+    transition: width .3s ease;
+    z-index: 1;
+    position: fixed;
+    height: 100vh;
+    top: 70px;
+
+    &.hide {
+        width: 75px;
+    }
+
+    &.open {
+        width: 190px;
+    }
+
+    &__link {
+        color: $color-main;
+        position: relative;
+        padding: 10px 15px;
+        padding-left: 30px;
+        width: 100%;
+
+        &:hover,
+        &:focus {
+            background-color: darken($color: $color-main-reverse, $amount: 5);
+
+            .nav__icon {
+                fill: $color-accent;
+            }
+        }
+
+        &.active {
+            .nav__icon {
+                fill: $color-accent;
+            }
+        }
+    }
+
+    &__icon {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        fill: $color-main;
+    }
+
+    &__link-title {
+        padding-left: 50px;
+    }
+
+    &__overlay {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: calc(100vw - 207px);
+        height: 100vh;
+        margin-top: 70px;
+        z-index: 0;
+        background: rgba($color: #000000, $alpha: .5);
+        
+
+        &.show {
+            display: block;
+        }
+
+        &.hide {
+            display: none;
+        }
+    }
+}

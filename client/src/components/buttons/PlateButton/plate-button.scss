@@ -1,0 +1,27 @@
+@import '../../../utils/vars/vars.scss';
+
+.plate-button {
+    width: 50px;
+    height: 50px;
+    outline: none;
+    position: relative;
+    padding: 15px;
+    border-radius: 50%;
+    transition: background .3s ease;
+
+    &:hover,
+    &:focus {
+        background: darken($color: $color-main-reverse, $amount: 5);
+
+        .plate-button__icon {
+            fill: $color-accent;
+        }
+    }
+
+    &__icon {
+        width: 100%;
+        height: 100%;
+        fill: $color-main;
+        transition: fill .3s ease;
+    }
+}

@@ -1,0 +1,66 @@
+@import '../../../../utils/vars/vars.scss';
+
+.user-wall {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 25px;
+
+
+    &__header {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-gap: 15px;
+        align-items: center;
+    }
+
+    &__avatar {
+        width: 30px;
+        height: 30px;
+    }
+
+    &__form {
+        display: flex;
+    }
+
+    &__form-input {
+        flex: 0 1 80%;
+        padding: 10px 15px;
+        background: darken($color: $color-main-reverse, $amount: 10);
+        color: $color-main;
+        border: none;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        outline: none;
+    }
+
+    &__form-submit {
+        flex: 0 1 20%;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border: 1px solid $color-accent;
+    }
+
+    &__filters {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 15px;
+
+        .search {
+            grid-column: 1/-1;
+        }
+    }
+
+    &__filter {
+        padding: 10px 15px;
+        border-bottom: 1px solid $color-accent;
+    }
+
+    &__news-content {
+        padding: 25px;
+        background: darken($color: $color-main-reverse, $amount: 10);
+
+        > * {
+            margin-bottom: 30px;
+        }
+    }
+}

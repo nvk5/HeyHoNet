@@ -1,0 +1,59 @@
+@import '../../utils/vars/vars.scss';
+
+.post {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    grid-auto-rows: 50px;
+
+    &__header {
+        display: flex;
+    }
+
+    &__user-avatar {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    &__settings {
+        margin-left: auto;
+        display: flex;
+    }
+
+    &__reaction {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__button {
+        outline: none;
+        position: relative;
+        display: grid;
+        // grid-template-columns: 20px min-content; 
+        justify-content: center;
+        grid-gap: 12px;
+    
+        &:hover,
+        &:focus {
+            // background: darken($color: $color-main-reverse, $amount: 5);
+    
+            .post__reaction-icon {
+                fill: $color-accent;
+            }
+        }
+    }
+
+    &__reaction-icon {
+        width: 100%;
+        height: 100%;
+        fill: $color-main;
+        transition: fill .3s ease;
+    }
+}

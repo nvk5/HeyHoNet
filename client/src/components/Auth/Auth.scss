@@ -1,0 +1,138 @@
+@import '../../utils/vars/vars.scss';
+
+.auth {        
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    color: $color-main-reverse;
+    background: url('../../assets/images/pexels-wojtek-pacześ-5819779.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    &__content {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: #fff;
+
+        @media (max-width: 1199.98px) {
+            flex: 1 1 100%;
+            background: url('../../assets/images/pexels-wojtek-pacześ-5819779.jpg');
+            background-size: cover;
+            color: #fafafa;
+        }
+    }
+
+    &__headline {
+        text-align: center;
+        font-size: 3.75rem;
+        font-weight: 300;
+    }
+
+    &__block {
+        display: grid;
+        grid-gap: 20px;
+        position: relative;
+        width: 500px;
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255,255,255, .5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__error {
+        color: red;
+        justify-self: center;
+    }
+
+    &__additional {
+        display: grid;
+        grid-gap: 20px;
+    }
+
+    &__additional-divider {
+        font-size: 1.25rem;
+        font-style: italic;
+        text-align: center;
+    }
+
+    &__button {
+        font-size: 1.25rem;
+        padding: 20px 15px;
+        color: #fafafa;
+        border-radius: 3px;
+        background: #007bff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        &:hover,
+        &:focus {
+            background: #0069d9;
+        }
+
+        &--google {
+            background: #ea4335;
+
+            &:hover,
+            &:focus {
+                background: #e82e1e;
+            }
+        }
+
+        &--github {
+            background: #464646;
+
+            &:hover,
+            &:focus {
+                background: #333333;
+            }
+        }
+    }
+
+    &__button-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    &__form {
+        display: grid;
+        grid-gap: 20px;
+    }
+
+    &__form-input {
+        padding: 20px 15px;
+        width: 100%;
+    }
+}
+
+
+
+.form-animation-enter {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  .form-animation-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 1000ms, transform 1000ms;
+  }
+  .form-animation-exit {
+    opacity: 1;
+  }
+  .form-animation-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 1000ms, transform 1000ms;
+  }

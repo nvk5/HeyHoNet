@@ -1,0 +1,96 @@
+@import 'normalize.css/normalize.css';
+@import '../../utils/vars/vars.scss';
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+
+    @media screen and (max-width: 767.98px) {
+        font-size: 90%;
+    }
+}
+
+body {
+    font-family: $ff-main;
+    line-height: 1.2;
+    position: relative;
+    overflow-x: hidden;
+    color: $color-main;
+    background-color: $bg-main;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
+.page {
+    padding-left: 75px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+
+    &__home, &__home + .widgets {
+        padding-top: 170px;
+    }
+
+    &__albums, &__albums + .widgets,
+    &__edit-profile, &__edit-profile + .widgets {
+        padding-top: 100px;
+    }
+}
+
+.auth-loading {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+::-webkit-input-placeholder { /* Chrome */
+    color: $color-main;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: $color-main;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: $color-main;
+  }
+  :-moz-placeholder { /* Firefox 4 - 18 */
+    color: $color-main;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+  }

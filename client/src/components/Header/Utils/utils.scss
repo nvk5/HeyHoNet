@@ -1,0 +1,39 @@
+@import '../../../utils/vars/vars.scss';
+
+.utils {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+
+    &__list {
+        position: absolute;
+        background-color: $color-main-reverse;
+        width: 300px;
+        display: none;
+        right: 0;
+        top: 100%;
+        padding: 10px 15px;
+
+        &.show {
+            display: block;
+        }
+    }
+
+    &__item {
+        display: flex;
+    }
+
+    &__link {
+        color: $color-main;
+        padding: 10px 15px;
+        transition: background-color .3s ease;
+        outline: none;
+        width: 100%;
+
+        &:hover,
+        &:focus {
+            background-color: darken($color: $color-main-reverse, $amount: 5);
+        }
+    }
+}

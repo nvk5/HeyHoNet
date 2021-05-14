@@ -1,0 +1,109 @@
+@import '../../../utils/vars/vars.scss';
+
+.user-dropdown {
+    position: relative;
+
+    &__button {
+        position: relative;
+        z-index: 2;
+        // background: $color-main-reverse;
+        transition: background .3s ease;
+        width: 100%;
+        outline: none;
+
+        &:hover,
+        &:focus {
+            background-color: darken($color: $color-main-reverse, $amount: 5);
+
+            .user-dropdown__icon {
+                fill: $color-accent;
+            }
+        }
+    }
+
+    &__icon {
+        width: 10px;
+        height: 10px;
+        fill: $color-main;
+
+        &.open {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 15px;
+        cursor: pointer;
+    }
+
+
+    &__photo {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: $color-main;
+        margin: 0 15px;
+    }
+
+    &__image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__list {
+        position: absolute;
+        background-color: $color-main-reverse;
+        width: 150%;
+        display: none;
+        right: 0;
+        padding: 10px 15px;
+
+        &.show {
+            display: block;
+        }
+    }
+
+    &__list-item {
+        display: flex;
+    }
+
+    &__list-link {
+        padding: 10px 15px;
+        color: $color-main;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+        justify-items: start;
+        width: 100%;
+        transition: background-color .3s ease;
+        outline: none;
+
+        &:hover,
+        &:focus {
+            background-color: darken($color: $color-main-reverse, $amount: 5);
+
+            .user-dropdown__list-link-icon {
+                fill: $color-accent;
+            }
+        }
+    }
+
+    &__list-link-icon {
+        width: 20px;
+        height: 20px;
+        fill: $color-main;
+        transition: fill .3s ease;
+    }
+
+    &__arrow {
+        transition: transform .5s ease;
+
+        &.show {
+            transform: rotate(180deg);
+        }
+    }
+}
