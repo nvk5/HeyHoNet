@@ -2,7 +2,8 @@ const User = require('../models/user');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-
+const fileService = require('../services/fileService');
+const File = require('../models/file');
 class AuthController {
     async signUp(req, res) {
         try {
@@ -15,13 +16,13 @@ class AuthController {
 
             const {isValid, errors} = req.validation;
             if (!isValid) {
-                return res.status(400).json({message: 'Uncorrect request', errors});
+                return res.status(400).json({message: `${errors.errors[0].msg}`});
             }
 
             const hashedPassword = await bcryptjs.hash(password, 7);
-            const user = new User({ email, password: hashedPassword, firstName, lastName });
+            const user = new User({ email, password: hashedPassword, personalInfo: { mainInfo: { firstName, lastName } } });
             await user.save();
-
+            await fileService.createUserDir(user._id);
             return res.json({ message: 'User has been created', user });
         } catch (err) {
             console.log(err);
@@ -39,9 +40,8 @@ class AuthController {
             }
 
             const {isValid, errors} = req.validation;
-
             if (!isValid) {
-                return res.status(400).json({message: 'Uncorrect request', errors});
+                return res.status(400).json({message: `${errors.errors[0].msg}`});
             }
 
             const isPassValid = await bcryptjs.compare(password, existingUser.password);
@@ -53,7 +53,6 @@ class AuthController {
             return res.json({ token, user: existingUser });
 
         } catch (err) {
-            console.log(err);
             res.send({ message: 'Server error' })
         }
     }
@@ -65,7 +64,6 @@ class AuthController {
 
             return res.json({ token, user });
         } catch (err) {
-            console.log(err);
             res.send({ message: 'Server error' })
         }
     }

@@ -1,0 +1,10 @@
+.unsaved-changes-modal {
+    &__text {
+        line-height: 1.5;
+        font-size: 1.125rem;
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+}

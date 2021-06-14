@@ -8,13 +8,13 @@ export default function useComponentVisible(visible, closeMethod) {
     useEffect(() => {
         const handleHideDropdown = (event) => {
             if (event.key === 'Escape') {
-                dispatch(closeMethod());
+                closeMethod();
             }
         };
-
+        
         const handleClickOutside = function (event) {
-            if (visible && !ref.current.contains(event.target)) {
-                dispatch(closeMethod());
+            if (visible && ref.current && !ref.current.contains(event.target)) {
+                closeMethod();
             }
         };
 
@@ -27,4 +27,5 @@ export default function useComponentVisible(visible, closeMethod) {
     }, [visible, dispatch, closeMethod]);
 
     return { ref }
+
 }

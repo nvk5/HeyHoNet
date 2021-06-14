@@ -1,0 +1,56 @@
+@import '../../utils/vars/vars.scss';
+
+.dropdown {
+    position: absolute;
+    right: 0;
+    top: 120%;
+    padding: 10px 15px;
+    background-color: $color-main-reverse;
+    border-radius: $border-radius-main;
+    display: none;
+    z-index: 1;
+
+    &.md {
+        width: 250px;
+    }
+
+    &.sm {
+        width: 185px;
+    }
+
+
+    &.show {
+        display: block;
+    }
+
+    a, button {
+        color: $color-main;
+        padding: 10px 15px;
+        transition: background-color .3s ease;
+        outline: none;
+        width: 100%;
+        display: flex;
+        border-radius: $border-radius-main;
+        letter-spacing: 0.05em;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-gap: 5px;
+        justify-items: baseline;
+
+        &:hover,
+        &:focus {
+            background: lighten($color: $color-main-reverse, $amount: 10);
+    
+            svg {
+                fill: $color-accent;
+            }
+        }
+    }
+
+    svg {
+        fill: $color-main;
+        width: 20px;
+        height: 20px;
+    }
+}
+

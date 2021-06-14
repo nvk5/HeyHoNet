@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './Logo.scss';
 
 const Logo = () => {
-    const { isAuth } = useSelector(state => state.user);
+    const { isAuth } = useSelector(state => state.login);
 
     return (
         <Link className={isAuth ? "logo" : "logo not-auth"} to="/">

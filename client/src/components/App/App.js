@@ -7,30 +7,35 @@ import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { auth } from '../../redux/actions/user';
 import HomePage from '../pages/HomePage/HomePage';
-import Spinner from '../Spinner/Spinner';
 import Navigation from '../Navigation/Navigation';
-import Albums from '../pages/Albums/Albums';
-import EditProfile from '../pages/EditProfile/EditProfile';
+import Photos from '../pages/Photos/Photos';
+import EditProfile from '../pages/EditProfile/edit-profile';
 import Widgets from '../Widgets/Widgets';
+import useLeaveConfirmation from '../../hooks/useLeaveConfirmation';
+import AuthLoader from '../Auth/AuthLoader';
 
 const App = () => {
     const dispatch = useDispatch();
-    const { isAuth, loading } = useSelector(state => state.user);
+    const { authLoading } = useSelector(state => state.auth);
+    const { isAuth } = useSelector(state => state.login);
 
     useEffect(() => dispatch(auth()), [dispatch]);
 
-    if (loading) {
-        return <div className="auth-loading"><Spinner /></div>
+    const { confirmComponent, promptAPIGetConfirmation } = useLeaveConfirmation();
+
+    if (authLoading) {
+        return <div className="auth-loading"><AuthLoader /></div>
     }
 
     return (
-        <BrowserRouter>
+        <BrowserRouter getUserConfirmation={promptAPIGetConfirmation}>
+            {confirmComponent}
             <Header />
             {!isAuth ?
                 <Switch>
                     <Route path="/signup" component={SignUpPage} />
                     <Route path="/login" component={LogInPage} />
-                    {/* <Redirect to="/login" exact/> */}
+                    {/* <Route path="*" render={() => <Redirect to="/login"/>}/> */}
                 </Switch>
                 :
                 <>
@@ -38,9 +43,9 @@ const App = () => {
                     <div className="page">
                         <Switch>
                             <Route exact path="/" component={HomePage} />
-                            <Route path="/albums" component={Albums} />
+                            <Route path="/photo" component={Photos} />
                             <Route path="/edit" component={EditProfile} />
-                            {/* <Redirect to="/" exact /> */}
+                            {/* <Route path="*" component={PageNotFound}/> */}
                         </Switch>
                         <Widgets />
                     </div>

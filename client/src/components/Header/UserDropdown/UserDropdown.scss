@@ -54,50 +54,50 @@
         height: 100%;
     }
 
-    &__list {
-        position: absolute;
-        background-color: $color-main-reverse;
-        width: 150%;
-        display: none;
-        right: 0;
-        padding: 10px 15px;
+    // &__list {
+    //     position: absolute;
+    //     background-color: $color-main-reverse;
+    //     width: 150%;
+    //     display: none;
+    //     right: 0;
+    //     padding: 10px 15px;
 
-        &.show {
-            display: block;
-        }
-    }
+    //     &.show {
+    //         display: block;
+    //     }
+    // }
 
-    &__list-item {
-        display: flex;
-    }
+    // &__list-item {
+    //     display: flex;
+    // }
 
-    &__list-link {
-        padding: 10px 15px;
-        color: $color-main;
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        align-items: center;
-        justify-items: start;
-        width: 100%;
-        transition: background-color .3s ease;
-        outline: none;
+    // &__list-link {
+    //     padding: 10px 15px;
+    //     color: $color-main;
+    //     display: grid;
+    //     grid-template-columns: 1fr 2fr;
+    //     align-items: center;
+    //     justify-items: start;
+    //     width: 100%;
+    //     transition: background-color .3s ease;
+    //     outline: none;
 
-        &:hover,
-        &:focus {
-            background-color: darken($color: $color-main-reverse, $amount: 5);
+    //     &:hover,
+    //     &:focus {
+    //         background-color: darken($color: $color-main-reverse, $amount: 5);
 
-            .user-dropdown__list-link-icon {
-                fill: $color-accent;
-            }
-        }
-    }
+    //         .user-dropdown__list-link-icon {
+    //             fill: $color-accent;
+    //         }
+    //     }
+    // }
 
-    &__list-link-icon {
-        width: 20px;
-        height: 20px;
-        fill: $color-main;
-        transition: fill .3s ease;
-    }
+    // &__list-link-icon {
+    //     width: 20px;
+    //     height: 20px;
+    //     fill: $color-main;
+    //     transition: fill .3s ease;
+    // }
 
     &__arrow {
         transition: transform .5s ease;

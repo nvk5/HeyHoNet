@@ -1,5 +1,6 @@
 {
     "port": 5000,
     "databaseURL": "mongodb+srv://nvkdev5:555qwehgf555@cluster0.hnybn.mongodb.net/HeyHoNet?retryWrites=true&w=majority",
-    "secretJWTKey": "heyho"
+    "secretJWTKey": "heyho",
+    "apiURL": "http://localhost:5000/"
 }

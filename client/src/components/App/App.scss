@@ -1,7 +1,9 @@
 @import 'normalize.css/normalize.css';
 @import '../../utils/vars/vars.scss';
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -46,23 +48,41 @@ a {
     display: inline-block;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     margin: 0;
 }
 
 .page {
     padding-left: 75px;
-    display: grid;
-    grid-template-columns: 1fr 300px;
+    padding-bottom: 50px;
+    // display: grid;
+    // grid-template-columns: 3fr 1fr;
+    display: flex;
 
-    &__home, &__home + .widgets {
+    &__home,
+    &__home+.widgets {
         padding-top: 170px;
     }
 
-    &__albums, &__albums + .widgets,
-    &__edit-profile, &__edit-profile + .widgets {
+    &__photos,
+    &__photos + .widgets,
+    &__edit-profile,
+    &__edit-profile + .widgets {
         padding-top: 100px;
     }
+}
+
+.main {
+    flex: 0 1 75%;
+    max-width: 75%;
+}
+
+.widgets {
+    flex: 0 1 25%;
+    max-width: 25%;
 }
 
 .auth-loading {
@@ -74,23 +94,31 @@ h1, h2, h3, h4 {
 }
 
 
-::-webkit-input-placeholder { /* Chrome */
+::-webkit-input-placeholder {
+    /* Chrome */
     color: $color-main;
-  }
-  :-ms-input-placeholder { /* IE 10+ */
-    color: $color-main;
-  }
-  ::-moz-placeholder { /* Firefox 19+ */
-    color: $color-main;
-  }
-  :-moz-placeholder { /* Firefox 4 - 18 */
-    color: $color-main;
-  }
+}
 
-  .visually-hidden {
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: $color-main;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $color-main;
+}
+
+:-moz-placeholder {
+    /* Firefox 4 - 18 */
+    color: $color-main;
+}
+
+
+.visually-hidden {
     position: absolute;
     clip: rect(0 0 0 0);
     width: 1px;
     height: 1px;
     margin: -1px;
-  }
+}

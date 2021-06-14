@@ -1,0 +1,88 @@
+@import '../../../../utils/vars/vars.scss';
+
+.personal-info-block {
+    padding: 20px;
+    background: #131313;
+    margin: 10px 0;
+    border-radius: 10px;
+
+    &__headline {
+        transition: color .3s linear;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        outline: none;
+
+        &:hover,
+        &:focus,
+        &.opened {
+            .personal-info-block__header-icon {
+                fill: $color-accent;
+            }
+
+            .personal-info-block__headline {
+                color: $color-accent;
+            }
+        }
+    }
+
+    &__header-icon {
+        width: 30px;
+        height: 30px;
+        fill: $color-main;
+        transition: fill .3s linear;
+
+        &.opened {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__list {
+        margin-top: 50px;
+        // height: 100%;
+        // transition: height .3s ease;
+
+        &.hide {
+            display: none;
+            // height: 50%;
+            // transition: height .5s ease;
+            // overflow: hidden;
+        }
+    }
+
+    &__list-item {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px groove $color-main;
+        padding: 10px 15px;
+        font-size: 1.125rem;
+
+        &--interests {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
+            border: 1px groove;
+            position: relative;
+
+            &:not(:last-child) {
+                margin-bottom: 30px;
+            }
+
+            .personal-info-block__list-label {
+                position: absolute;
+                top: -10px;
+                left: 20px;
+                padding: 0 20px;
+                background: $bg-main;
+            }
+
+            .personal-info-block__list-value {
+                padding: 25px 7px;
+            }
+        }
+    }
+}

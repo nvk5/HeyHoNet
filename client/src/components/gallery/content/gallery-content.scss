@@ -1,0 +1,22 @@
+@import '../../../utils/vars/vars.scss';
+
+.gallery-content {
+    &__loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__error {
+        font-size: 1.25rem;
+
+        span {
+            color: $color-danger;
+            letter-spacing: 0.05em;
+        }
+    }
+
+    &__tab {
+        margin-bottom: 100px;
+    }
+}

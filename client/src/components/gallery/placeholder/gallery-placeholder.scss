@@ -1,0 +1,18 @@
+@import '../../../utils/vars/vars.scss';
+
+.gallery-placeholder {
+    background: url('../../../assets/images/gallery.svg') rgba(0, 0, 0, .5);
+    background-repeat: no-repeat;
+    padding-top: 38.25%;
+    background-position: center;
+    background-blend-mode: overlay;
+    position: relative;
+
+    &__headline {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        letter-spacing: $letter-spacing-main;
+    }
+}

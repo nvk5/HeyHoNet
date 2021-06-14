@@ -58,7 +58,7 @@ const Navigation = () => {
                     </NavLink>
                 </li>
                 <li className="nav__item">
-                    <NavLink className="nav__link" to="/albums" title={!menuIsVisible ? "My photos" : ''}>
+                    <NavLink className="nav__link" to="/photo" title={!menuIsVisible ? "My photos" : ''}>
                         <svg className="nav__icon">
                             <use href={`${Sprite}#photos`}></use>
                         </svg>
@@ -66,7 +66,7 @@ const Navigation = () => {
                     </NavLink>
                 </li>
                 <li className="nav__item">
-                    <NavLink className="nav__link" to="/music" title={!menuIsVisible ? "My playlist" : ''}>
+                    <NavLink className="nav__link" to="/audio" title={!menuIsVisible ? "My playlist" : ''}>
                         <svg className="nav__icon">
                             <use href={`${Sprite}#music`}></use>
                         </svg>
@@ -74,7 +74,7 @@ const Navigation = () => {
                     </NavLink>
                 </li>
                 <li className="nav__item">
-                    <NavLink className="nav__link" to="/videos" title={!menuIsVisible ? "My videos" : ''}>
+                    <NavLink className="nav__link" to="/video" title={!menuIsVisible ? "My videos" : ''}>
                         <svg className="nav__icon">
                             <use href={`${Sprite}#videos`}></use>
                         </svg>

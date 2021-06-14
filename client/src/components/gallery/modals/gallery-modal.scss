@@ -1,0 +1,36 @@
+@import '../../../utils/vars/vars.scss';
+
+.create-album-modal {
+    &__form {
+        display: grid;
+        grid-gap: 40px;
+    }
+}
+
+.album-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-file-modal__input {
+    background: darken($color: $color-main-reverse, $amount: 5);
+    border: 2px solid $color-main;
+    padding: 6px 10px;
+    font-size: 1.25rem;
+    outline: none;
+    color: $color-main;
+    border-radius: 10px;
+    transition: color .3s ease, border-color .3s ease;
+    text-transform: uppercase;
+    font-size: 0.9375rem;
+    letter-spacing: .05em;
+    line-height: 1.5;
+    text-align: center;
+
+    &:hover,
+    &:focus {
+        border-color: $color-accent;
+        color: $color-accent;
+    }
+}

@@ -1,0 +1,49 @@
+@import '../../../utils/vars/vars.scss';
+
+.photos {
+    padding: 0 25px;
+
+    &__loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__error {
+        font-size: 1.25rem;
+
+        span {
+            color: $color-danger;
+            letter-spacing: 0.05em;
+        }
+    }
+
+    &__wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__header {
+        margin-bottom: 15px;
+    }
+
+    &__tab-headline {
+        font-size: 1.25rem;
+        letter-spacing: .09em;
+        margin-bottom: 15px;
+    }
+
+    &__activity,
+    &__view {
+        display: flex;
+
+        >* {
+            margin: 0 7px;
+        }
+    }
+
+    &__tab {
+        margin-bottom: 100px;
+    }
+}

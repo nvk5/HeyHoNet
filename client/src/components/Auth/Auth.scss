@@ -1,6 +1,6 @@
 @import '../../utils/vars/vars.scss';
 
-.auth {        
+.auth {
     height: 100vh;
     overflow: hidden;
     display: flex;
@@ -33,26 +33,23 @@
 
     &__block {
         display: grid;
+        grid-auto-rows: minmax(20px, auto);
         grid-gap: 20px;
         position: relative;
         width: 500px;
     }
 
-    &__overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255,255,255, .5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    &__error, 
+    &__greetings {
+        justify-self: center;
     }
 
     &__error {
-        color: red;
-        justify-self: center;
+        color: $color-danger;
+    }
+
+    &__greetings {
+        color: $color-accent;
     }
 
     &__additional {
@@ -75,7 +72,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    
+
         &:hover,
         &:focus {
             background: #0069d9;
@@ -114,25 +111,61 @@
     &__form-input {
         padding: 20px 15px;
         width: 100%;
+
+        &::-webkit-input-placeholder {
+            /* Chrome */
+            color: $color-main-reverse;
+        }
+        
+        &:-ms-input-placeholder {
+            /* IE 10+ */
+            color: $color-main-reverse;
+        }
+        
+        &::-moz-placeholder {
+            /* Firefox 19+ */
+            color: $color-main-reverse;
+        }
+        
+        &:-moz-placeholder {
+            /* Firefox 4 - 18 */
+            color: $color-main-reverse;
+        }
     }
 }
 
+.auth-form-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $color-main-reverse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
-.form-animation-enter {
+.auth-animation-enter {
     opacity: 0;
     transform: scale(0.9);
-  }
-  .form-animation-enter-active {
+}
+
+.auth-animation-enter-active {
     opacity: 1;
     transform: translateX(0);
     transition: opacity 1000ms, transform 1000ms;
-  }
-  .form-animation-exit {
-    opacity: 1;
-  }
-  .form-animation-exit-active {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 1000ms, transform 1000ms;
-  }
+}

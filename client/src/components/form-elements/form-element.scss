@@ -1,0 +1,82 @@
+@import '../../utils/vars/vars.scss';
+
+.form-element {
+    position: relative;
+    font-size: 1.125rem;
+    display: flex;
+    height: 70px;
+
+    &__placeholder {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 20px;
+        transition: all .3s ease-in-out;
+        background: darken($color: $color-main-reverse, $amount: 5);
+    }
+
+    &__item {
+        color: $color-main;
+        outline: none;
+        width: 100%;
+        border: 1px solid $color-input-border;
+        padding: 10px 15px;
+        line-height: 1.5;
+        background: none;
+
+        &:focus + .form-element__placeholder,
+        &:not([value=""]) + .form-element__placeholder {
+            transform: translate(10px, -30px);
+            top: 20px;
+            font-size: 1rem;
+            padding: 0 23px;
+            color: $color-accent;
+        }
+    }
+
+    &__clear {
+        position: absolute;
+        font-size: 2.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        outline: none;
+
+        &:hover,
+        &:focus {
+            color: $color-accent;
+        }
+    }
+}
+
+
+.form-element.textarea {
+    height: 200px;
+
+    .form-element__item {
+        resize: none;
+        
+        &:focus + .form-element__placeholder,
+        &:not(:empty) + .form-element__placeholder {
+            transform: translate(5px, -20px);
+            font-size: 1rem;
+            padding: 0 23px;
+            color: $color-accent;
+        }
+    }
+
+    .form-element__placeholder {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        transform: none;
+        font-size: 1.125rem;
+        color: $color-main;
+        padding: 0;
+        transition: all .3s ease-in-out;
+        background: darken($color: $color-main-reverse, $amount: 5); 
+    }
+}

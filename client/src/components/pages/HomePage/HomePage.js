@@ -6,8 +6,11 @@ import UserWall from './UserWall/UserWall';
 import PageBar from '../../../utils/PageBar/PageBar';
 import MainButton from '../../buttons/MainButton/MainButton';
 import TrashButton from '../../buttons/TrashButton/TrashButton';
+import { useSelector } from 'react-redux';
+import PersonalInfoBlock from './PersonalInfoBlock/PersonalInfoBlock';
 
 const HomePage = () => {
+    const { currentUser } = useSelector(state => state.profile);
 
     return (
         <main className="main page__home">
@@ -18,8 +21,12 @@ const HomePage = () => {
                         <img alt="" src={User} className="profile__avatar" />
                         <figcaption>
                             <h1 className="profile__init">
-                                <span className="profile__firstname">Name</span>
-                                <span className="profile__lastname">LastName</span>
+                                <span className="profile__firstname">
+                                    {currentUser.personalInfo.mainInfo.firstName}
+                                </span>
+                                <span className="profile__lastname">
+                                    {currentUser.personalInfo.mainInfo.lastName}
+                                </span>
                             </h1>
                             <span className="caption">Whats' new?</span>
                         </figcaption>
@@ -32,7 +39,7 @@ const HomePage = () => {
                 <div className="profile__buttons">
                     <PageBar>
                         <div className="profile__buttons-wrap">
-                            <MainButton text="Edit profile" type="link" url="/edit"/>
+                            <MainButton text="Edit profile" type="link" url="/edit" />
                             <UtilButton />
                         </div>
                     </PageBar>
@@ -52,13 +59,7 @@ const HomePage = () => {
                                         </div>
                                     </div>
                                     <div className="profile-block__content">
-                                        <ul className="prfile-block__list">
-                                            <li>1</li>
-                                            <li>2</li>
-                                            <li>3</li>
-                                            <li>4</li>
-                                            <li>5</li>
-                                        </ul>
+                                        <PersonalInfoBlock user={currentUser}/>
                                     </div>
                                 </div>
                             </PageBar>

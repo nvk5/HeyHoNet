@@ -11,7 +11,7 @@ import { hideSearch, showSearch } from '../../redux/reducers/searchReducer.js';
 
 
 const Header = () => {
-    const { isAuth } = useSelector(state => state.user);
+    const { isAuth } = useSelector(state => state.login);
     const { searchVisible } = useSelector(state => state.search);
 
     return (

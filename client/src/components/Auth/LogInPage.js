@@ -1,43 +1,54 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import githubIcon from '../../assets/images/github.svg';
 import googleIcon from '../../assets/images/google.svg';
-import useAuthFormAnimation from '../../hooks/useAuthFormAnimation';
-import Spinner from '../Spinner/Spinner';
-import Input from '../../utils/Input/Input';
-import './Auth.scss';
+import AuthFormLoader from './AuthFormLoader';
+import Input from './Input';
+import './auth.scss';
 import { logIn } from '../../redux/actions/user';
+import useAnimationOnMount from '../../hooks/useAnimationOnMount';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { resetLoginNotifications } from '../../redux/reducers/auth/loginReducer';
+import { resetSignupNotifications } from '../../redux/reducers/auth/signupReducer';
 
-const SignInPage = () => {
+
+const LogInPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const {loading, error} = useSelector(state => state.user);
     const dispatch = useDispatch();
+    const history = useHistory();
 
-    const { animation } = useAuthFormAnimation();
+    const { loading, error } = useSelector(state => state.login);
+    const { isRegistrated } = useSelector(state => state.signup);
+
+    const { animation } = useAnimationOnMount();
 
     const handleLogIn = (event) => {
         event.preventDefault();
-        dispatch(logIn({ email, password }))
+        dispatch(logIn({ email, password, history }));
     }
 
-    // if (isAuth) {
-    //     return <Redirect to="/"/>
-    // }
+    useEffect(() => {
+        return () => {
+            dispatch(resetLoginNotifications())
+            dispatch(resetSignupNotifications())
+        }
+    }, [dispatch]);
 
     return (
         <main className="auth">
             <div className="auth__content">
-                <CSSTransition mountOnEnter unmountOnExit in={animation} timeout={1000} classNames="form-animation">
+                <CSSTransition mountOnEnter unmountOnExit in={animation} timeout={1000} classNames="auth-animation">
                     <div className="auth__block">
                         <h1 className="auth__headline">Sign In</h1>
-                        {error && <p className="auth__error">{error.message}</p>}
-                        {loading && <div className="auth__overlay"><Spinner /></div>}
+                        {isRegistrated && <p className="auth__greeting">You have been Successfully registrated!</p>}
+                        {error && <p className="auth__error">{error}</p>}
+                        {loading && <div className="auth__overlay"><AuthFormLoader /></div>}
                         <form className="auth__form" onSubmit={handleLogIn}>
-                            <Input id="email" type="email" placeholder="Email" setValue={setEmail} value={email}/>
-                            <Input id="password" type="password" placeholder="Password" setValue={setPassword} value={password}/>
+                            <Input id="email" type="email" placeholder="Email" setValue={setEmail} value={email} />
+                            <Input id="password" type="password" placeholder="Password" setValue={setPassword} value={password} />
                             <button className="auth__button" type="submit">
                                 <span>Log In</span>
                             </button>
@@ -67,4 +78,4 @@ const SignInPage = () => {
     );
 }
 
-export default SignInPage;
+export default LogInPage;
